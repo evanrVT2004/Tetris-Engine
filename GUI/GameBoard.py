@@ -19,4 +19,19 @@ class GameBoard:
 
     ## Check If a Row is Full (If a Row is Full, return true(1) else return false(0)) ##
     def is_full(self, row, column):
+<<<<<<< HEAD
         return(self.grid[row][column] == 1)
+=======
+        return(self.grid[row][column] == 1)
+
+    ## Checks if row is full
+    def remove_full_rows(self):
+        for row in range(self.height):
+            # DEBUG: Correct syntax?
+            if all(self.grid[row]) == 1:
+                self.grid[row] = [0 for _ in range(self.width)]
+
+        
+
+
+>>>>>>> aea94f63efb006410c7bc902a966ac24ebf5a45d
