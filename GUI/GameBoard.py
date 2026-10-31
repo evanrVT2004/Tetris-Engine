@@ -43,3 +43,20 @@ class ScoreBoard:
         self.width = width
         self.height = height
         self.grid = [[0 for _ in range(width)] for _ in range(height)]
+
+    ## Set the layout of the Score Board (We want to Display the Score) ##
+    def score_Layout(self, score):
+
+        ## Loop for Clearing and Replacing the Score ##
+        ## The Score is as Follows:Single Line = 40*(n+1), Double Line = 100*(n+1), Triple Line = 300*(n+1), Tetris = 1200*(n+1) (where n is the level number)##
+        for row in range(self.height):
+            for column in range(self.width):
+                ## Clear Score Board ##
+                self.grid[row][column] = 0
+                ## Replace Score Board with the New Score ##
+                ## n is the level number, there are 50 levels, so n = 1,2,...,50 ##
+                n = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50]
+                
+
+
+
