@@ -26,6 +26,15 @@ class GameBoard:
             return False
                 
         return(self.grid[row][column] == 1)
+    
+    ## Checks if row is full
+    ## TODO: Shift pieces down
+    def remove_full_rows(self):
+        for row in range(self.height):
+            # DEBUG: Correct syntax?
+            if all(self.grid[row]) == 1:
+                self.grid[row] = [0 for _ in range(self.width)]
+
 
 class ScoreBoard:
 
