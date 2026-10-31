@@ -1,7 +1,5 @@
-
-
+## Written by: Evan Ridinger ##
 ## Game Board Code for the Tetris Engine ##
-
 
 class GameBoard:
 
@@ -14,6 +12,10 @@ class GameBoard:
     ## Check If a Cell is Empty (If a Cell is Empty, return true(0) else return false(1)) ##
     def is_empty(self, row, column):
         return(self.grid[row][column] == 0)
+        ## Checks if the Cell is Outside of the Game Board ##
+        if row < 0 or row >= self.height or column < 0 or column >= self.width:
+            return False
+        
 
     ## Check If a Row is Full (If a Row is Full, return true(1) else return false(0)) ##
     def is_full(self, row, column):
