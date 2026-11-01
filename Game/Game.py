@@ -1,4 +1,4 @@
-from GUI import GameBoard
+from GUI.GameBoard import GameBoard
 import numpy
 
 # Game Loop:

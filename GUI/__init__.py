@@ -1,1 +1,1 @@
-from GameBoard import GameBoard
+from .GameBoard import GameBoard, ScoreBoard
