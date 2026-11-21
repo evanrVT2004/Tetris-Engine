@@ -35,6 +35,13 @@ class GameBoard:
             if all(self.grid[row]) == 1:
                 self.grid[row] = [0 for _ in range(self.width)]
 
+    # TODO
+    def showPieces(self, pieces, canvas):
+        offset = 30 # Cell size 
+        for piece in pieces:
+            for pos in piece.pos:
+                canvas.create_rectangle(pos[0], pos[1], pos[0]+offset, pos[1]+offset, outline="white", fill="green")
+
 
 class ScoreBoard:
 

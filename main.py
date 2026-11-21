@@ -1,6 +1,9 @@
 ## Importing Necessary Libraries and Modules ##
 import tkinter as tk
 from GUI.GameBoard import GameBoard, ScoreBoard
+from GUI.Controller import Controller
+from Game.Game import Game
+from Game.Piece import Piece
 
 ## Main Function to Display the Game Board and Score Board ##
 if __name__ == "__main__":
@@ -28,4 +31,17 @@ if __name__ == "__main__":
             y2 = y1 + cell_height
             canvas.create_rectangle(x1, y1, x2, y2, outline="grey")
 
+    # DEBUG
+    game = Game()
+
+    pos = [(0,0), (0,30), (30,0), (30,30)]
+    piece = Piece(pos)
+    game.addPiece(piece)
+    #window.bind("<Down>", )
+    
+    game.shiftDownPiece(piece)
+    print(piece.pos)
+    
+    game_board.showPieces(game.pieces, canvas)
+    
     window.mainloop()
