@@ -10,12 +10,9 @@ from sortedcontainers import SortedDict
 
 class Game:
     def __init__(self):
-        self.state = GameBoard() # TODO: Implement game board state
+        #self.state = GameBoard() # TODO: Implement game board state
         self.pieces = SortedDict() # Array of game pieces TODO: Make a sorted list?
         self.currentPiece = Piece([])
-
-    def getState(self):
-        return self.state
 
     # # Adds piece to game board
     # # Piece is array, x and y are where should go in board
@@ -58,12 +55,23 @@ class Game:
 
     def shiftDownPiece(self, piece):
         if piece in self.pieces:
+            # TODO: Look for piece below it
             self.pieces[piece] = piece.shiftDown() # Changes internal positions
+
+    def shiftRightPiece(self, piece):
+        if piece in self.pieces:
+            # TODO: Look for piece below it
+            self.pieces[piece] = piece.shiftRight() # Changes internal positions
+
+    def shiftLeftPiece(self, piece):
+        if piece in self.pieces:
+            # TODO: Look for piece below it
+            self.pieces[piece] = piece.shiftLeft() # Changes internal positions
 
     def rotatePiece(self, piece):
         if piece in self.pieces:
             self.pieces[piece] = piece.rotate()
 
     # Checks for full rows
-    def updateGameBoard(self):
-        self.state.remove_full_rows()
+    # def updateGameBoard(self):
+    #     self.state.remove_full_rows()

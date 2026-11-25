@@ -7,15 +7,16 @@ from Game.Piece import Piece
 
 ## Main Function to Display the Game Board and Score Board ##
 if __name__ == "__main__":
-    game_board = GameBoard()
-    score_board = ScoreBoard()
 
     window = tk.Tk()
     window.title("|_|TETRIS|_|")
 
     canvas = tk.Canvas(window, width=300, height=600, bg="black")
     canvas.grid(row=0, column=0, padx=10, pady=10)
-    game_board.canvas = canvas
+
+    # Make game board and score board
+    game_board = GameBoard(canvas)
+    score_board = ScoreBoard()
 
     ## TODO: Create a Score Function to Update the Score Board ##
     score_label = tk.Label(window, text = "Score: 0", font=("Times New Roman", 18))
@@ -34,15 +35,16 @@ if __name__ == "__main__":
 
     # DEBUG
     game = Game()
-    controller = Controller(game, game_board)
+    controller = Controller(window, game, game_board)
 
-    pos = [(0,0), (0,30), (30,0), (30,30)]
+    pos = [(0,0), (0,30), (30,0)]
     piece = Piece(pos)
     game.addPiece(piece)
     game.currentPiece = piece
-    
-    window.bind("<Down>", controller.down_arrow)
 
-    #game_board.showPieces(game.pieces, canvas)
+    window.bind("<Up>", controller.up_arrow)
+    window.bind("<Down>", controller.down_arrow)
+    window.bind('<Right>', controller.right_arrow)
+    window.bind("<Left>", controller.left_arrow)
     
     window.mainloop()

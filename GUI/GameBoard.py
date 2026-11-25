@@ -4,11 +4,11 @@
 class GameBoard:
 
     ## Initialize the Game Board with a Given Width and Height ##
-    def __init__(self, width=10, height=20):
+    def __init__(self, canvas, width=10, height=20):
         self.width = width
         self.height = height
         self.grid = [[0 for _ in range(width)] for _ in range(height)]
-        self.canvas = 0
+        self.canvas = canvas
 
     ## Check If a Cell is Empty (If a Cell is Empty, return true(0) else return false(1)) ##
     def is_empty(self, row, column):
