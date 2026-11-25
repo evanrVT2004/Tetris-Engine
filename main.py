@@ -15,6 +15,7 @@ if __name__ == "__main__":
 
     canvas = tk.Canvas(window, width=300, height=600, bg="black")
     canvas.grid(row=0, column=0, padx=10, pady=10)
+    game_board.canvas = canvas
 
     ## TODO: Create a Score Function to Update the Score Board ##
     score_label = tk.Label(window, text = "Score: 0", font=("Times New Roman", 18))
@@ -33,15 +34,15 @@ if __name__ == "__main__":
 
     # DEBUG
     game = Game()
+    controller = Controller(game, game_board)
 
     pos = [(0,0), (0,30), (30,0), (30,30)]
     piece = Piece(pos)
     game.addPiece(piece)
-    #window.bind("<Down>", )
+    game.currentPiece = piece
     
-    game.shiftDownPiece(piece)
-    print(piece.pos)
-    
-    game_board.showPieces(game.pieces, canvas)
+    window.bind("<Down>", controller.down_arrow)
+
+    #game_board.showPieces(game.pieces, canvas)
     
     window.mainloop()

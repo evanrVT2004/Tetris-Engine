@@ -11,7 +11,6 @@ class Controller():
         self.model = model
         self.view = view
 
-
     # Left arrow
     def left_arrow(self):
         self.model.move_left() # TODO: Make function in Game
@@ -19,8 +18,13 @@ class Controller():
     def right_arrow(self):
         self.model.move_right() # TODO: Make function in Game
 
-    def down_arrow(self):
-        self.model.move_down()
+    def down_arrow(self, event):
+        #self.model.move_down()
+        # DEBUG
+
+        self.model.shiftDownPiece(self.model.currentPiece)
+        self.view.clear()
+        self.view.showPieces(self.model.pieces)
 
     def up_arrow(self):
         self.model.rotate_left()

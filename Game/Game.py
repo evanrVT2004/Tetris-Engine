@@ -12,6 +12,7 @@ class Game:
     def __init__(self):
         self.state = GameBoard() # TODO: Implement game board state
         self.pieces = SortedDict() # Array of game pieces TODO: Make a sorted list?
+        self.currentPiece = Piece([])
 
     def getState(self):
         return self.state
