@@ -20,7 +20,7 @@ if __name__ == "__main__":
 
     ## TODO: Create a Score Function to Update the Score Board ##
     score_label = tk.Label(window, text = "Score: 0", font=("Times New Roman", 18))
-    score_label.grid(row=0, column=1, padx=10, pady=10)
+    score_label.grid(row=0, column=1, padx=10, pady=20)
 
     cell_width = 300 // game_board.width
     cell_height = 600 // game_board.height

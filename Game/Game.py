@@ -1,9 +1,6 @@
-from GUI.GameBoard import GameBoard
 from Game.Piece import Piece
-import numpy
-from sortedcontainers import SortedDict
 
-# Game Loop:
+# Game Loop
 # Collect input
 # Update game state
 # Alert GUI
@@ -11,7 +8,7 @@ from sortedcontainers import SortedDict
 class Game:
     def __init__(self):
         #self.state = GameBoard() # TODO: Implement game board state
-        self.pieces = SortedDict() # Array of game pieces TODO: Make a sorted list?
+        self.pieces = []
         self.currentPiece = Piece([])
 
     # # Adds piece to game board
@@ -47,30 +44,28 @@ class Game:
     # TODO : Check for bottom of screen?
     # Overloaded functions to add Piece directly
     def addPiece(self, piece):
-        self.pieces[piece] = piece
+        if piece not in self.pieces:
+            self.pieces.append(piece)
 
     def removePiece(self, piece):
         if piece in self.pieces:
-            self.pieces.delitem(piece)
+            self.pieces.remove(piece)
 
     def shiftDownPiece(self, piece):
         if piece in self.pieces:
-            # TODO: Look for piece below it
-            self.pieces[piece] = piece.shiftDown() # Changes internal positions
+            piece.shiftDown()
 
     def shiftRightPiece(self, piece):
         if piece in self.pieces:
-            # TODO: Look for piece below it
-            self.pieces[piece] = piece.shiftRight() # Changes internal positions
+            piece.shiftRight()
 
     def shiftLeftPiece(self, piece):
         if piece in self.pieces:
-            # TODO: Look for piece below it
-            self.pieces[piece] = piece.shiftLeft() # Changes internal positions
+            piece.shiftLeft()
 
     def rotatePiece(self, piece):
         if piece in self.pieces:
-            self.pieces[piece] = piece.rotate()
+            piece.rotate()
 
     # Checks for full rows
     # def updateGameBoard(self):
